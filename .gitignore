@@ -1,0 +1,58 @@
+# Python-specific ignores
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Virtual environment
+venv/
+env/
+ENV/
+.venv/
+
+# Flask-specific ignores
+instance/  # Flask instance folder (e.g., for config or database)
+*.sqlite  # SQLite database files (if used)
+*.db      # Other database files
+
+# Logs
+*.log
+logs/
+*.log.*
+
+# Environment variables
+.env
+.env.local
+.env.development
+.env.production
+
+# Dependency directories
+dist/
+build/
+*.egg-info/
+*.egg
+eggs/
+wheels/
+
+# Testing/Coverage
+.coverage
+coverage.xml
+*.cover
+htmlcov/
+.pytest_cache/
+tox/
+nosetests.xml
+junit.xml
+
+# IDE/Editor files
+.idea/          # PyCharm/IntelliJ
+.vscode/        # Visual Studio Code
+*.sublime-*     # Sublime Text
+*.swp           # Vim swap files
+
+# Miscellaneous
+*.DS_Store      # macOS Finder files
+Thumbs.db       # Windows thumbnail cache

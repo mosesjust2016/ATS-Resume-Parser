@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Review Your Resume</title>
+    <style>
+        pre { white-space: pre-wrap; }
+        .error { color: red; }
+        .success { color: green; }
+    </style>
+</head>
+<body>
+    <h1>Review Your Resume</h1>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <p class="{{ category }}">{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <h2>Parsed Resume Data</h2>
+    <pre>{{ data | tojson | safe }}</pre>
+
+    <h2>Choose a Resume Template</h2>
+    <form method="POST" action="{{ url_for('generate', template='template_basic') }}">
+        <input type="hidden" name="data" value="{{ data | tojson | safe }}">
+        <button type="submit">Basic Template</button>
+    </form>
+    <form method="POST" action="{{ url_for('generate', template='template_modern') }}">
+        <input type="hidden" name="data" value="{{ data | tojson | safe }}">
+        <button type="submit">Modern Template</button>
+    </form>
+
+    <p><a href="{{ url_for('index') }}">Back to Home</a></p>
+</body>
+</html>
